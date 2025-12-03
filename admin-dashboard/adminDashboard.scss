@@ -1,0 +1,191 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 3fr;
+    height: 100vh;
+
+    .sidebar {
+        content: 'dashboard sidebar';
+        grid-row: 1 / -1;
+        background-color: #2288ee;
+        color: white;
+        --mainTextSize: 2rem;
+        --mainFontWeight: bold;
+        --mainGap: 2rem;
+        height: 100%;
+        width: 100%;
+
+        .dashboardSidebar {
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-content: start;
+            padding: 2rem;
+            font-size: var(--mainTextSize);
+            font-weight: var(--mainFontWeight);
+            gap: var(--mainGap);
+
+
+            .dashboardLogo {
+                gap: 1rem;
+                display: flex;
+                flex-direction: row;
+                line-height: 1.5rem;
+                align-items: center;
+                margin: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .mainNav {
+                margin-bottom: 3rem;
+            }
+
+            img {
+                width: 3rem;
+                height: 3rem;
+            }
+
+
+            .logoNavsContainer {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                line-height: 2.2rem;
+                gap: var(--mainGap);
+                margin: 1rem;
+                --mainTextSize: 1.5rem;
+                --mainFontWeight: bold;
+
+
+                img {
+                    width: 2rem;
+                    height: 2rem;
+                }
+            }
+
+            .logoItem {
+                font-size: var(--mainTextSize);
+                font-weight: var(--mainFontWeight);
+            }
+
+            .sidebarLogo {
+                filter: brightness(0) saturate(100%) invert(100%) sepia(3%) saturate(71%) hue-rotate(339deg) brightness(116%) contrast(100%);
+            }
+        }
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        background-color: #f3f4f5;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        color: black;
+        gap: 1rem;
+        --testBorder: solid black 1px;
+        --mainFontSize: 2rem;
+        --fontWeight: bold;
+
+        .firstRowHeader {
+            display: flex;
+            flex-direction: row;
+            justify-items: center;
+            align-items: center;
+            padding: 1rem;
+            justify-content: space-around;
+
+            .searchHeader {
+                display: flex;
+                ;
+                flex-direction: row;
+                width: 50%;
+                gap: 10px;
+
+                .searchBar {
+                    width: 20rem;
+                    height: 2.5rem;
+                    background-color: #c2c6c7;
+                    border-radius: 1rem;
+                    flex: 1;
+                }
+
+                .headerLogo {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
+
+            }
+
+            .profileHeader {
+                display: grid;
+                justify-items: center;
+                align-items: center;
+                width: 25rem;
+                grid-template-columns: repeat(3, 1fr);
+
+
+                .womanProfile {
+                    width: 3.5rem;
+                    height: 3.5rem;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        .secondRowHeader {
+            display: flex;
+            flex-direction: row;
+            justify-items: center;
+            align-items: center;
+            padding: 1rem;
+            justify-content: space-around;
+            font-size: var(--mainFontSize);
+            font-weight: var(--fontWeight);
+            
+
+            .accountHeader {
+                display: flex;
+                justify-items: center;
+                align-items: center;
+                flex-direction: row;
+                width: 50%;
+                gap: 10px;
+            }
+
+            .womanProfile2 {
+                width: 4.5rem;
+                height: 4.5rem;
+                border-radius: 50%;
+            }
+
+            .buttonHeader {
+                display: grid;
+                justify-items: center;
+                align-items: center;
+                grid-template-columns: repeat(3, 1fr);
+                width: 25rem;
+                gap: 2rem;
+            }
+            button {
+                background-color: #2288ee;
+                border-radius: 10px;
+                height: 2.5rem;
+                width: 6rem;
+                color: white;
+                border: none;
+                flex: 1;
+            }
+        }
+    }
+
+    .maincontent {
+        content: 'dashboard main content';
+        grid-column: 2 / 3;
+        background-color: #c5c2c2;
+    }
+}
