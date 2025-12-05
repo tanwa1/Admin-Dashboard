@@ -6,45 +6,54 @@ body {
     height: 100%;
 }
 
+:root {
+    --mainFontSize: 1.2rem;
+    --fontWeight: bold;
+    --mainGap: 1.5rem;
+}
+
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr 3fr;
     height: 100vh;
 
+    .grid-item {
+        color: rgb(95, 93, 93);
+    }
+
+    .divTitles {
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .line {
+        margin: 0.5rem 0 0.5rem 0;
+        border: solid black 0.1rem;
+    }
+
     .sidebar {
-        content: 'dashboard sidebar';
         grid-row: 1 / -1;
         background-color: #2288ee;
         color: white;
-        --mainTextSize: 2rem;
-        --mainFontWeight: bold;
-        --mainGap: 2rem;
         height: 100%;
         width: 100%;
 
         .dashboardSidebar {
             display: grid;
             grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
             justify-content: start;
             padding: 2rem;
-            font-size: var(--mainTextSize);
-            font-weight: var(--mainFontWeight);
+            font-size: var(--mainFontSize);
+            font-weight: var(--fontWeight);
             gap: var(--mainGap);
-
 
             .dashboardLogo {
                 gap: 1rem;
                 display: flex;
                 flex-direction: row;
                 line-height: 1.5rem;
-                align-items: center;
-                margin: 1rem;
-                margin-bottom: 2rem;
-            }
-
-            .mainNav {
-                margin-bottom: 3rem;
             }
 
             img {
@@ -55,12 +64,10 @@ body {
 
             .logoNavsContainer {
                 display: grid;
+                align-items: center;
                 grid-template-columns: repeat(5, 1fr);
-                line-height: 2.2rem;
-                gap: var(--mainGap);
                 margin: 1rem;
-                --mainTextSize: 1.5rem;
-                --mainFontWeight: bold;
+                gap: var(--mainGap);
 
 
                 img {
@@ -70,12 +77,28 @@ body {
             }
 
             .logoItem {
+                align-content: center;
                 font-size: var(--mainTextSize);
                 font-weight: var(--mainFontWeight);
             }
 
             .sidebarLogo {
                 filter: brightness(0) saturate(100%) invert(100%) sepia(3%) saturate(71%) hue-rotate(339deg) brightness(116%) contrast(100%);
+            }
+
+            .dashboardLogo {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                font-size: 2rem;
+                font-weight: bold;
+                margin: 1rem;
+
+                .viewBoardLogo {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    filter: brightness(0) saturate(100%) invert(100%) sepia(3%) saturate(71%) hue-rotate(339deg) brightness(116%) contrast(100%);
+                }
             }
         }
     }
@@ -84,13 +107,12 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        background-color: #f3f4f5;
+        background-color: #fdfeff;
         height: 100%;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
         color: black;
-        --testBorder: solid black 1px;
-        --mainFontSize: 2rem;
-        --fontWeight: bold;
+        font-size: var(--mainFontSize);
+        font-weight: var(--fontWeight);
 
         .firstRowHeader {
             display: flex;
@@ -118,24 +140,28 @@ body {
 
                 .headerLogo {
                     width: 2.5rem;
-                    height: 2rem;
+                    height: 2.5rem;
                 }
-
             }
 
             .profileHeader {
                 display: grid;
                 justify-items: center;
                 align-items: center;
-                width: 25rem;
+                width: 29rem;
                 grid-template-columns: repeat(3, 1fr);
-
 
                 .womanProfile {
                     width: 3.5rem;
                     height: 3.5rem;
                     border-radius: 50%;
                 }
+
+                .notificationLogo {
+                    width: 2rem;
+                    height: 2rem;
+                }
+
             }
         }
 
@@ -169,13 +195,15 @@ body {
                 justify-items: center;
                 align-items: center;
                 grid-template-columns: repeat(3, 1fr);
-                width: 25rem;
+                width: 29rem;
                 gap: 2rem;
             }
 
             button {
                 background-color: #2288ee;
-                border-radius: 10px;
+                border-radius: 50px;
+                font-size: var(--mainFontSize);
+                font-weight: var(--fontWeight);
                 height: 2.5rem;
                 width: 6rem;
                 color: white;
@@ -191,66 +219,397 @@ body {
         background-color: #ece7e7;
         height: 100%;
 
-        .articleContainer {
-            display: grid;
-            justify-items: center;
-            width: 100%;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 2fr));
-            grid-area: 2 / 1 / 3 / -2;
+        .projectSection {
+            display: flex;
+            flex-direction: column;
 
-            .projects {
-                height: 200px;
-                width: 80%;
-                display: grid;
-                margin: 1rem;
-                padding: 1rem;
-                background-color: white;
-                border-radius: 10px;
-                align-items: center;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 
+            .projectText {
+                margin-top: 1rem;
+                margin-left: 1rem;
+                font-size: var(--mainFontSize);
+                font-weight: var(--fontWeight)
             }
 
-            .projectLogos {
+            .projectContent {
+                display: grid;
+                justify-content: center;
                 align-items: center;
-                justify-items: center;
-                display: flex;
-                justify-content: end;
-                gap: 2rem;
-                margin-right: 1rem;
+                width: 100%;
+                grid-template-columns: repeat(auto-fit, minmax(450px, 2fr));
+                grid-area: 2 / 1 / 3 / -2;
+
+                .projects {
+                    height: 200px;
+                    width: 70%;
+                    display: grid;
+                    margin: 1rem;
+                    padding: 1rem;
+                    background-color: white;
+                    border-radius: 10px;
+                    align-items: center;
+                    box-shadow: inset 5px 0px 0px rgba(253, 144, 1, 0.973);
+
+                }
+
+                .projectLogos {
+                    align-items: center;
+                    justify-items: center;
+                    display: flex;
+                    justify-content: end;
+                    gap: 2rem;
+                    margin-right: 1rem;
+
+                    img {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                    }
+                }
+
+            }
+        }
+
+        .projectSectionText {
+            font-size: var(--mainFontSize);
+            font-weight: var(--fontWeight);
+            margin-top: 1rem;
+            color: white;
+            background-color: black;
+        }
+
+    }
+
+    .announcementSectionText {
+        margin-top: 1rem;
+        font-size: var(--mainFontSize);
+        font-weight: var(--fontWeight);
+    }
+
+    .trendingSectionText {
+        font-size: var(--mainFontSize);
+        font-weight: var(--fontWeight);
+    }
+
+    .mainContentSidebar {
+        display: flex;
+        flex-direction: row;
+        grid-area: 1 / 2 / 3 / 3;
+
+        .announcementsSection {
+            display: grid;
+            width: 80%;
+            height: 40%;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .trendingSection {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 85%;
+            height: 41%;
+            background-color: white;
+            padding: 0.5rem;
+            border-radius: 10px;
+            margin-top: 0.5rem;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+            .trendingSectionLogos {
+                .trendingItem {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    margin: 0.5rem;
+                    gap: 0.5rem;
+
+                    img {
+                        width: 3.5rem;
+                        height: 3.5rem;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1300px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+
+        .sidebar {
+            height: 40%;
+            width: 100%;
+
+            .dashboardSidebar {
+                display: grid;
+                grid-template-columns: 1fr;
+
+                .miscs {
+                    grid-area: 1 / 3 / 2 / 4;
+                }
+
+                .logoItem {
+                    font-size: 1rem;
+                }
+
+                .dashboardText {
+                    font-size: 1.5rem;
+                }
 
                 img {
-                    width: 1.5rem;
-                    height: 1.5rem;
+                    width: 2rem;
+                    height: 2rem;
+                }
+            }
+
+        }
+    }
+}
+
+@media only screen and (max-width: 840px) {
+    .wrapper {
+        display: flex;
+        flex-direction: rows;
+
+        .sidebar {
+            height: 40%;
+            width: 100%;
+
+            .dashboardSidebar {
+                gap: 5px;
+
+                .logoItem {
+                    font-size: 1rem;
+                }
+
+                .dashboardText {
+                    font-size: 1rem;
+                }
+
+                .logoNavsContainer {
+                    margin: 3px;
+                    gap: var(--mainGap);
+
+                    img {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                    }
+                }
+
+                .mainNav {
+                    width: 50%;
+                    grid-area: 2 / 1 / 3 / 3;
+
+                }
+
+                .miscs {
+                    display: grid;
+                    justify-items: center;
+                    align-items: center;
+                    grid-area: 2 / 3 / 4 / 3;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 430px) {
+
+    .wrapper {
+        display: flex;
+        flex-direction: rows;
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #fdfeff;
+            height: 100%;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+            color: black;
+            font-size: 1rem;
+            font-weight: 1rem;
+
+            .firstRowHeader {
+                display: flex;
+                flex-direction: column;
+                justify-items: center;
+
+
+                .searchHeader {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    gap: 10px;
+
+                    .searchBar {
+                        height: 1rem;
+                        background-color: #c2c6c7;
+                        border-radius: 1rem;
+                    }
+
+                    .headerLogo {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                    }
+                }
+
+                .profileHeader {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    .womanProfile {
+                        width: 2rem;
+                        height: 2rem;
+                        border-radius: 50%;
+                    }
+
+                    .notificationLogo {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                    }
+
+                }
+            }
+
+            .secondRowHeader {
+                display: flex;
+                flex-direction: column;
+                justify-items: center;
+                align-items: center;
+                gap: 10px;
+
+                .accountHeader {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                }
+
+                .womanProfile2 {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    border-radius: 50%;
+                }
+
+                .buttonHeader {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
                 }
             }
         }
 
-        .projectSectionText,
-        .announcementSectionText {
-            font-size: 1.5rem;
-            font-weight: var(--fontWeight);
-            margin-left: 2rem;
-        }
+        .maincontent {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            background-color: #ece7e7;
+            height: 100%;
 
-        .miscSection {
-            display: flex;
-            flex-direction: row;
-            .announcementsSection {
-                display: grid;
-                background-color: white;
-                margin: 1rem;
-                padding: 1rem;
-                border-radius: 10px;
+            .projectSection {
+                display: flex;
+                flex-direction: column;
+
+
+                .projectText {
+                    margin-top: 1rem;
+                    margin-left: 1rem;
+                    font-size: var(--mainFontSize);
+                    font-weight: var(--fontWeight)
+                }
+
+                .projectContent {
+                    display: grid;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+                    grid-area: 2 / 1 / 3 / -2;
+
+                    .projects {
+                        height: 170px;
+                        width: 70%;
+                        display: grid;
+                        background-color: white;
+                        border-radius: 10px;
+                        align-items: center;
+                        box-shadow: inset 5px 0px 0px rgba(253, 144, 1, 0.973);
+
+                    }
+
+                    .projectLogos {
+                        align-items: center;
+                        justify-items: center;
+                        display: flex;
+                        justify-content: end;
+                        gap: 2rem;
+                        margin-right: 1rem;
+
+                        img {
+                            width: 1.5rem;
+                            height: 1.5rem;
+                        }
+                    }
+
+                }
             }
-            
-            .trendingSection{
-                display: grid;
-                background-color: white;
-                margin: 1rem;
-                padding: 1rem;
-                border-radius: 10px;
+
+
+            .mainContentSidebar {
+                display: flex;
+                flex-direction: row;
+                grid-area: 2 / 1 / 3 / 3;
+
+                .announcementsSection {
+                    display: grid;
+                    width: 70%;
+                    height: 20%;
+                    background-color: white;
+                    padding: 1rem;
+                    border-radius: 10px;
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                    margin: 1rem;
+                }
+
+                .announcementSectionText {
+                    margin-left: 1rem;
+                }
+
+
+                .trendingSection {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    width: 70%;
+                    height: 20%;
+                    background-color: white;
+                    padding: 1rem;
+                    margin: 1rem;
+                    border-radius: 10px;
+                    margin-top: 0.5rem;
+                    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                }
+
+                .trendingSectionText {
+                    margin-left: 1rem;
+                }
+
             }
+
         }
     }
 }
